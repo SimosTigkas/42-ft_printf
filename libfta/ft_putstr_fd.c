@@ -6,14 +6,15 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 08:56:09 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/07 15:31:23 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/15 14:33:42 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_putstr_fd(char *s, int fd)
 {
 	if (s != NULL)
-		write(fd, s, ft_strlen(s));
+		return (write(fd, s, ft_strlen(s)));
+	return (0);
 }

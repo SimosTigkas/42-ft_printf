@@ -6,7 +6,7 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 08:31:47 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/14 17:34:46 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/15 16:40:19 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,10 @@
 # include <stdio.h>
 # include <stdarg.h>
 
-typedef struct s_print
-{
-	va_list	args;
-	int		wdt;
-	int		prc;
-	int		zero;
-	int		pnt;
-	int		dash;
-	int		tl;
-	int		sign;
-	int		is_zero;
-	int		perc;
-	int		sp;
-}	t_print;
-
-int	ft_printf(const char *format, ...);
+int		ft_printf(const char *format, ...);
+int		print_format(char spec, va_list lst_args);
+int		print_digit(long n, int base, char spec);
+int		print_digit_u(unsigned int n);
+int		print_ptr(unsigned long int ptr);
 
 #endif
