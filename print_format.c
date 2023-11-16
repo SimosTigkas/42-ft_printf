@@ -6,46 +6,40 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 09:37:16 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/15 17:15:41 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/16 12:08:53 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_ptr(unsigned long int ptr)
+int	print_ptr(long int n, char spec)
 {
-	int		count;
-	char	*symbols;
-	char	buffer[20];
-	int		i;
+	long int	*ptr;
+	char		*s;
+	int			i;
+	long int	a;
 
+	s = "(null)";
 	i = 0;
-	count = ft_putstr_fd("0x", 1);
-	symbols = "012345678abcdef";
-
-	if (ptr == 0)
-		count += ft_putchar_fd('0', 1);
-	else
+	ptr = &n;
+	if (ptr == NULL)
 	{
-		while (ptr)
+		while (s)
 		{
-			buffer[i++] = symbols[ptr % 16];
-			ptr /= 16;
+			ft_putchar_fd(s[i], 1);
+			i++;
 		}
-		i--;
-		while (i >= 1)
-		{
-			count += ft_putchar_fd(buffer[--i], 1);
-		}
+		return (i);
 	}
-	return (count);
+	a = *ptr;
+	ft_putstr_fd("0x", 1);
+	return (print_digit(a, 16, spec) + 2);
 }
 
 int	print_digit_u(unsigned int n)
 {
 	int		count;
 	char	*symbols;
-	char	*symbols_u;
 
 	count = 0;
 	symbols = "0123456789abcdef";
@@ -59,7 +53,7 @@ int	print_digit_u(unsigned int n)
 	}
 }
 
-int	print_digit(long n, int base, char spec)
+int	print_digit(long int n, int base, char spec)
 {
 	int		count;
 	char	*symbols;
@@ -104,7 +98,7 @@ int	print_format(char spec, va_list lst_args)
 	else if (spec == 'x' || spec == 'X')
 		count += print_digit((long)va_arg(lst_args, unsigned int), 16, spec);
 	else if (spec == 'p')
-		count += print_ptr(va_arg(lst_args, unsigned long int));
+		count += print_ptr(va_arg(lst_args, long), spec);
 	else
 		count += ft_putchar_fd(spec, 1);
 	return (count);

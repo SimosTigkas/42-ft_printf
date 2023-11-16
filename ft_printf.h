@@ -6,7 +6,7 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 08:31:47 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/15 16:40:19 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/16 12:06:16 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 
 int		ft_printf(const char *format, ...);
 int		print_format(char spec, va_list lst_args);
-int		print_digit(long n, int base, char spec);
+int		print_digit(long int n, int base, char spec);
 int		print_digit_u(unsigned int n);
-int		print_ptr(unsigned long int ptr);
+int		print_ptr(long int n, char spec);
 
 #endif

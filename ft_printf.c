@@ -6,7 +6,7 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 08:32:06 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/15 17:03:25 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/16 11:43:23 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	ft_printf(const char *format, ...)
 int	main(void)
 {
 	int	count;
-	unsigned long int num = 42;
-    unsigned long int *ptr;
+	long int num = 10;
+    void *ptr;
 
 	ptr = &num;
 	count = ft_printf("%u\n", INT_MAX + 1);

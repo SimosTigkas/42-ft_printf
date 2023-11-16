@@ -1,7 +1,8 @@
 NAME = libftprintf.a
 
 FUNC = \
-	ft_printf.c
+	ft_printf.c \
+	print_format.c
 
 INC =.
 
