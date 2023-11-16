@@ -6,13 +6,13 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 09:16:23 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/15 14:46:39 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/16 14:31:27 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
-int	ft_putnbr_fd(unsigned int n, int fd)
+int	ft_putnbr_fd(int n, int fd)
 {
 	char	buffer[13];
 	int		i;

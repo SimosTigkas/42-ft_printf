@@ -4,7 +4,9 @@ FUNC = \
 	ft_printf.c \
 	print_format.c
 
-INC =.
+LIBFTA = libfta
+
+INC = includes
 
 OBJ = $(FUNC:.c=.o)
 
@@ -14,6 +16,9 @@ CFLAGS = -Wall -Wextra -Werror
 	gcc $(CFLAGS) -I$(INC) -c $< -o $@ 
 
 $(NAME): $(OBJ)
+	@make -C $(LIBFTA)
+	@cp libfta/libft.a .
+	@mv libft.a $(NAME)
 	ar crs $(NAME) $(OBJ)
 
 all: $(NAME)
@@ -22,7 +27,8 @@ clean:
 	rm -f $(OBJ)
 
 fclean:	clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
+	@rm -f $(LIBFTA)/libft.a
 
 re:	fclean all
 

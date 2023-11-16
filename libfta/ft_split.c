@@ -6,11 +6,11 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:00:26 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/09 11:27:48 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/16 14:24:12 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 static size_t	count_words(char const *s, char c)
 {

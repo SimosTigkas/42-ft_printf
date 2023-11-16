@@ -6,11 +6,11 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 16:53:04 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/06 13:19:59 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/16 14:24:32 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 static char	*ft_strcat(char *dest, const char *src)
 {

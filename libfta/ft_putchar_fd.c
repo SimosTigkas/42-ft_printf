@@ -6,11 +6,11 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 07:56:41 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/15 10:20:58 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/16 14:23:53 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/libft.h"
 
 int	ft_putchar_fd(char c, int fd)
 {

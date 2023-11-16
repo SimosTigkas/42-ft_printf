@@ -6,12 +6,12 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 08:32:06 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/16 12:42:52 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/16 17:58:36 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //NO LEAKS WILL BE TOLERATED
-#include "ft_printf.h"
+#include "includes/ft_printf.h"
 #include <limits.h>
 
 int	ft_printf(const char *format, ...)
@@ -37,3 +37,12 @@ int	ft_printf(const char *format, ...)
 	va_end(lst_args);
 	return (char_print);
 }
+
+// print(" %p %p ", LONG_MIN, LONG_MAX));
+// 32:     TEST(8, print(" %p %p ", ULONG_MAX, -ULONG_MAX));
+// int main(void)
+// {
+// 	printf("B %p %p ", LONG_MIN, LONG_MAX);
+// 	ft_printf("A %p %p ", LONG_MIN, LONG_MAX);
+// 	return (0);
+// }
