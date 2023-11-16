@@ -6,7 +6,7 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 09:37:16 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/16 12:08:53 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/16 12:34:20 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,16 @@
 
 int	print_ptr(long int n, char spec)
 {
-	long int	*ptr;
 	char		*s;
 	int			i;
-	long int	a;
 
 	s = "(null)";
 	i = 0;
-	ptr = &n;
-	if (ptr == NULL)
-	{
-		while (s)
-		{
-			ft_putchar_fd(s[i], 1);
-			i++;
-		}
-		return (i);
-	}
-	a = *ptr;
+
+	if (n == 0)
+		return (ft_putstr_fd((s), 1));
 	ft_putstr_fd("0x", 1);
-	return (print_digit(a, 16, spec) + 2);
+	return (print_digit(n, 16, spec) + 2);
 }
 
 int	print_digit_u(unsigned int n)
@@ -43,7 +33,6 @@ int	print_digit_u(unsigned int n)
 
 	count = 0;
 	symbols = "0123456789abcdef";
-
 	if (n < 10)
 		return (ft_putchar_fd(symbols[n], 1));
 	else
@@ -62,7 +51,6 @@ int	print_digit(long int n, int base, char spec)
 	count = 0;
 	symbols = "0123456789abcdef";
 	symbols_u = "0123456789ABCDEF";
-
 	if (n < 0)
 	{
 		write(1, "-", 1);
