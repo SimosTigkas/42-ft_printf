@@ -2,7 +2,8 @@ NAME = libftprintf.a
 
 FUNC = \
 	ft_printf.c \
-	print_format.c
+	print_format.c \
+	print_digit.c
 
 LIBFTA = libfta
 
