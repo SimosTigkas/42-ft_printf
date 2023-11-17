@@ -12,7 +12,6 @@
 
 //NO LEAKS WILL BE TOLERATED
 #include "includes/ft_printf.h"
-#include <limits.h>
 
 int	ft_printf(const char *format, ...)
 {
@@ -37,12 +36,3 @@ int	ft_printf(const char *format, ...)
 	va_end(lst_args);
 	return (char_print);
 }
-
-// print(" %p %p ", LONG_MIN, LONG_MAX));
-// 32:     TEST(8, print(" %p %p ", ULONG_MAX, -ULONG_MAX));
-// int main(void)
-// {
-// 	printf("B %p %p ", LONG_MIN, LONG_MAX);
-// 	ft_printf("A %p %p ", LONG_MIN, LONG_MAX);
-// 	return (0);
-// }
