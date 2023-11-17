@@ -6,7 +6,7 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 08:31:47 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/17 09:01:08 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/17 14:09:06 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ int		print_hex(unsigned long n, char spec);
 int		print_u(unsigned int n);
 int		print_ptr(unsigned long n);
 int		print_dec(long long n);
+int		h_w_e(int char_print);
+int		print_str(long int n);
 
 #endif

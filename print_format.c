@@ -6,37 +6,18 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 09:37:16 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/17 08:59:54 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/17 14:13:44 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 #include <stdint.h>
 
-int	print_str(long int n)
+int	print_ptr(unsigned long n)
 {
 	int	count;
 
 	count = 0;
-	if (n == 0)
-		count += ft_putstr_fd("(null)", 1);
-	else
-		count += ft_putstr_fd((char *)n, 1);
-	return (count);
-}
-
-int	print_ptr(unsigned long n)
-{
-	// char		*s;
-	int			count;
-
-	// s = "0x0";
-	count = 0;
-	// if (n == 0)
-	// {
-	// 	count += ft_putstr_fd(s, 1);
-	// 	return (count);
-	// }
 	ft_putstr_fd("0x", 1);
 	count += print_hex(n, 'x');
 	return (count + 2);
@@ -50,7 +31,7 @@ int	print_format(char spec, va_list lst_args)
 	if (spec == 'c')
 		count += ft_putchar_fd(va_arg(lst_args, int), 1);
 	else if (spec == 's')
-		count += print_str(va_arg(lst_args, long int));
+		count += ft_putstr_fd((char *)va_arg(lst_args, long int), 1);
 	else if (spec == 'd' || spec == 'i')
 		count += print_dec(va_arg(lst_args, int));
 	else if (spec == 'u')
@@ -60,6 +41,8 @@ int	print_format(char spec, va_list lst_args)
 	else if (spec == 'p')
 		count += print_ptr(va_arg(lst_args, unsigned long));
 	else if (spec == '%')
+		count += ft_putchar_fd(spec, 1);
+	else
 		count += ft_putchar_fd(spec, 1);
 	return (count);
 }
