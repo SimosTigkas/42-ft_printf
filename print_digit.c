@@ -6,11 +6,11 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 08:27:56 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/20 14:18:45 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/20 15:52:53 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/ft_printf.h"
+#include "ft_printf.h"
 
 int	print_u(unsigned int n)
 {

@@ -6,13 +6,12 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 08:32:06 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/20 14:24:44 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/20 15:52:43 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 //NO LEAKS WILL BE TOLERATED
-#include "includes/ft_printf.h"
-#include <limits.h>
+#include "ft_printf.h"
 
 int	h(int char_print, int w)
 {
@@ -48,19 +47,3 @@ int	ft_printf(const char *format, ...)
 	va_end(lst_args);
 	return (char_print);
 }
-
-// print(" %p %p ", LONG_MIN, LONG_MAX));
-// 32:     TEST(8, print(" %p %p ", ULONG_MAX, -ULONG_MAX));
-// int	main(void)
-// {
-// 	printf("Normal: \001\002\007\v\010\f\r\n");
-// 	ft_printf("Ours \001\002\007\v\010\f\r\n");
-// 	return (0);
-// }
-
-// int	main(void)
-// {
-//     ft_printf("Ours:%u", -200000);
-// 	printf("Normal: %u", -200000);
-// 	return (0);
-// }
