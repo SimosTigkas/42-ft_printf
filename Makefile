@@ -3,10 +3,7 @@ NAME = libftprintf.a
 FUNC = \
 	ft_printf.c \
 	print_format.c \
-	print_digit.c \
-	ft_putchar_fd.c \
-	ft_putnbr_fd.c \
-	ft_putstr_fd.c
+	print_digit.c
 
 LIBFTA = libfta
 
@@ -29,6 +26,7 @@ all: $(NAME)
 
 clean:
 	rm -f $(OBJ)
+	@make clean -C $(LIBFTA)
 
 fclean:	clean
 	@rm -f $(NAME)
