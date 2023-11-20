@@ -6,7 +6,7 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 08:32:06 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/17 13:31:16 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/20 14:24:44 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,35 @@
 #include "includes/ft_printf.h"
 #include <limits.h>
 
-int	h_w_e(int char_print)
+int	h(int char_print, int w)
 {
-	if (char_print < 0)
+	if (char_print < 0 || w < 0)
 		return (-1);
-	return (char_print);
+	else
+		return (char_print + w);
 }
 
 int	ft_printf(const char *format, ...)
 {
 	int		char_print;
 	va_list	lst_args;
-	int		e;
 
 	char_print = 0;
-	if (format == NULL)
-		return (-1);
 	va_start(lst_args, format);
 	while (*format)
 	{
-		e = char_print;
 		if (*format != '%')
-			char_print = h_w_e(char_print + write(1, format, 1));
+		{
+			char_print = h(char_print, write(1, format, 1));
+			if (char_print == -1)
+				return (-1);
+		}
 		else
 		{
-			++format;
-			char_print = h_w_e(char_print + print_format(*format, lst_args));
+			char_print = h(char_print, pr_format(*(++format), lst_args));
+			if (char_print == -1)
+				return (-1);
 		}
-		if (e > char_print)
-			return (-1);
 		format++;
 	}
 	va_end(lst_args);
@@ -60,7 +60,7 @@ int	ft_printf(const char *format, ...)
 
 // int	main(void)
 // {
-// 	ft_printf("%p\n", "");
-// 	printf("%p\n", "");
-//     return (0);
+//     ft_printf("Ours:%u", -200000);
+// 	printf("Normal: %u", -200000);
+// 	return (0);
 // }

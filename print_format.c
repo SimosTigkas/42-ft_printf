@@ -6,43 +6,47 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 09:37:16 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/17 14:13:44 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/20 15:32:31 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/ft_printf.h"
 #include <stdint.h>
 
-int	print_ptr(unsigned long n)
+int	print_ptr(unsigned long ptr)
 {
-	int	count;
+	int	c;
 
-	count = 0;
-	ft_putstr_fd("0x", 1);
-	count += print_hex(n, 'x');
-	return (count + 2);
+	c = 0;
+	c = h(c, ft_putstr_fd("0x", 1));
+	if (c == -1)
+		return (-1);
+	c = h(c, print_hex((unsigned long)ptr, 'x'));
+	if (c == -1)
+		return (-1);
+	return (c);
 }
 
-int	print_format(char spec, va_list lst_args)
+int	pr_format(char spec, va_list lst_args)
 {
-	int	count;
+	int	c;
 
-	count = 0;
+	c = 0;
 	if (spec == 'c')
-		count += ft_putchar_fd(va_arg(lst_args, int), 1);
+		c = h(c, ft_putchar_fd(va_arg(lst_args, int), 1));
 	else if (spec == 's')
-		count += ft_putstr_fd((char *)va_arg(lst_args, long int), 1);
+		c = h(c, ft_putstr_fd(va_arg(lst_args, char *), 1));
 	else if (spec == 'd' || spec == 'i')
-		count += print_dec(va_arg(lst_args, int));
+		c = h(c, ft_putnbr_fd(va_arg(lst_args, int), 1));
 	else if (spec == 'u')
-		count += print_u(va_arg(lst_args, unsigned long));
+		c = h(c, print_u(va_arg(lst_args, unsigned long)));
 	else if (spec == 'x' || spec == 'X')
-		count += print_hex(va_arg(lst_args, unsigned int), spec);
+		c = h(c, print_hex(va_arg(lst_args, unsigned int), spec));
 	else if (spec == 'p')
-		count += print_ptr(va_arg(lst_args, unsigned long));
+		c = h(c, print_ptr(va_arg(lst_args, unsigned long)));
 	else if (spec == '%')
-		count += ft_putchar_fd(spec, 1);
-	else
-		count += ft_putchar_fd(spec, 1);
-	return (count);
+		c = h(c, ft_putchar_fd(spec, 1));
+	if (c == -1)
+		return (-1);
+	return (c);
 }

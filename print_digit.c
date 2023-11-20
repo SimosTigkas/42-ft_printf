@@ -6,7 +6,7 @@
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 08:27:56 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/17 13:51:11 by stigkas          ###   ########.fr       */
+/*   Updated: 2023/11/20 14:18:45 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,62 +14,46 @@
 
 int	print_u(unsigned int n)
 {
-	int		count;
-	char	*symbols;
+	int		c;
 
-	count = 0;
-	symbols = "0123456789abcdef";
-	if (n < 10)
-		return (ft_putchar_fd(symbols[n], 1));
-	else
+	c = 0;
+	if (n >= 10)
 	{
-		count = print_u(n / 10);
-		return (count + print_u(n % 10));
+		c = h(c, print_u(n / 10));
+		if (c == -1)
+			return (-1);
 	}
+	c = h(c, ft_putchar_fd(n % 10 + '0', 1));
+	if (c == -1)
+		return (-1);
+	return (c);
 }
 
 int	print_hex(unsigned long n, char spec)
 {
-	int		count;
-	char	*symbols;
-	char	*symbols_u;
+	int		c;
 
-	count = 0;
-	symbols = "0123456789abcdef";
-	symbols_u = "0123456789ABCDEF";
+	c = 0;
 	if (n < 16)
 	{
-		if (spec == 'X')
-			return (ft_putchar_fd(symbols_u[n], 1));
+		if (n < 10)
+			return (h(c, ft_putchar_fd(n + '0', 1)));
 		else
-			return (ft_putchar_fd(symbols[n], 1));
+		{
+			if (spec == 'X')
+				return (h(c, ft_putchar_fd(n - 10 + 'A', 1)));
+			else
+				return (h(c, ft_putchar_fd(n - 10 + 'a', 1)));
+		}
 	}
 	else
 	{
-		count = print_hex(n / 16, spec);
-		return (count + print_hex(n % 16, spec));
-	}
-}
-
-int	print_dec(long long n)
-{
-	int		count;
-	char	*symbols;
-	char	*symbols_u;
-
-	count = 0;
-	symbols = "0123456789abcdef";
-	symbols_u = "0123456789ABCDEF";
-	if (n < 0)
-	{
-		write(1, "-", 1);
-		return (print_dec(-n) + 1);
-	}
-	else if (n < 10)
-		return (ft_putchar_fd(symbols[n], 1));
-	else
-	{
-		count = print_dec(n / 10);
-		return (count + print_dec(n % 10));
+		c = h(c, print_hex(n / 16, spec));
+		if (c == -1)
+			return (-1);
+		c = h(c, print_hex(n % 16, spec));
+		if (c == -1)
+			return (-1);
+		return (c);
 	}
 }
