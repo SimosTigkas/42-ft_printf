@@ -4,25 +4,20 @@ This project is a custom implementation of the printf function in the C programm
 # Features:
 *Modular Design:* The implementation is divided into smaller functions for better code organization and readability.
 Variable Argument Handling: Utilizes the <stdarg.h> library to handle variable numbers of arguments.
-Format Specifiers: Supports a subset of format specifiers commonly used in the standard printf function, including **'%c'** , **'%s'**, **'%d'**, **'%i'**, **'%u'**, **'%x'**, **'%X'**, **'%p'**, and **'%%'**.
+Format Specifiers: Supports a subset of format specifiers commonly used in the standard printf function, including `%c`, `%s`, `%d`, `%i`, `%u`, `%x`, `%X`, `%p`, and `%%`.
 Error Handling: Checks for invalid inputs and returns -1 in case of errors, allowing for better error management.
 
 # Usage:
 To use this printf implementation, include the printf.h header file in your C program. The ft_printf function can then be called with a format string and variable arguments.
 
-''
-
+```
 #include "printf.h"
-
-
 int main(void)
 {
     ft_printf("Hello, %s! The answer is %d.\n", "World", 42);
     return 0;
 }
-
-
-''
+```
 
 # Function Descriptions
 *int ft_printf(const char *format, ...)**
