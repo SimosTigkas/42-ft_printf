@@ -10,17 +10,17 @@ Error Handling: Checks for invalid inputs and returns -1 in case of errors, allo
 # Usage:
 To use this printf implementation, include the printf.h header file in your C program. The ft_printf function can then be called with a format string and variable arguments.
 
-'''
-\n
+''
+
 #include "printf.h"
 
-int main(void)\n
+int main(void)
 {
     ft_printf("Hello, %s! The answer is %d.\n", "World", 42);\n
     return 0;
-}\n
-\n
-'''
+}
+
+''
 
 # Function Descriptions
 *int ft_printf(const char *format, ...)**
