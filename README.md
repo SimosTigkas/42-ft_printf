@@ -1,3 +1,5 @@
+![C_logo](https://github.com/SimosTigkas/42-ft_printf/assets/113290423/02d92c48-4c52-46f3-806f-d961dbe564dd)
+
 # Overview:
 This project is a custom implementation of the printf function in the C programming language. The printf function is a standard library function in C used for formatted output. This project aims to replicate the basic functionality of printf while providing some additional features.
 
