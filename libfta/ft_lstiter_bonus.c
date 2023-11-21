@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 07:56:41 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/20 15:53:14 by stigkas          ###   ########.fr       */
+/*   Created: 2023/11/08 09:26:06 by stigkas           #+#    #+#             */
+/*   Updated: 2023/11/20 16:33:49 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/libft.h"
 
-int	ft_putchar_fd(char c, int fd)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	return (write(fd, &c, 1));
+	if (!f || !(lst))
+		return ;
+	while (lst)
+	{
+		(f)((lst)->content);
+		lst = lst->next;
+	}
 }

@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 08:31:47 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/21 09:15:32 by stigkas          ###   ########.fr       */
+/*   Created: 2023/11/01 08:56:09 by stigkas           #+#    #+#             */
+/*   Updated: 2023/11/20 16:39:36 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../includes/ft_printf.h"
 
-# include <stdarg.h>
-# include "libft.h"
+int	ft_putstr_fd(char *s, int fd)
+{
+	int	c;
 
-int		ft_printf(const char *format, ...);
-int		pr_format(char spec, va_list lst_args);
-int		print_hex(unsigned long n, char spec);
-int		print_u(unsigned int n);
-int		print_ptr(unsigned long ptr);
-int		h(int char_print, int w);
-
-#endif
+	c = 0;
+	if (s == NULL)
+	{
+		c = h(c, ft_putstr_fd("(null)", 1));
+		if (c == -1)
+			return (-1);
+		return (6);
+	}
+	while (*s)
+	{
+		c = h(c, write(fd, s, 1));
+		if (c == -1)
+			return (-1);
+		s++;
+	}
+	return (c);
+}

@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 08:31:47 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/21 09:15:32 by stigkas          ###   ########.fr       */
+/*   Created: 2023/11/01 13:32:48 by stigkas           #+#    #+#             */
+/*   Updated: 2023/11/20 16:35:43 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../includes/libft.h"
 
-# include <stdarg.h>
-# include "libft.h"
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	char			*new;
+	unsigned int	i;
+	unsigned int	slen;
 
-int		ft_printf(const char *format, ...);
-int		pr_format(char spec, va_list lst_args);
-int		print_hex(unsigned long n, char spec);
-int		print_u(unsigned int n);
-int		print_ptr(unsigned long ptr);
-int		h(int char_print, int w);
-
-#endif
+	i = 0;
+	if (s == NULL || f == NULL)
+		return (NULL);
+	slen = 0;
+	while (s[slen] != '\0')
+		slen++;
+	new = (char *)malloc(slen + 1);
+	if (!(new))
+		return (NULL);
+	while (s[i])
+	{
+		new[i] = f(i, s[i]);
+		i++;
+	}
+	new[i] = '\0';
+	return (new);
+}

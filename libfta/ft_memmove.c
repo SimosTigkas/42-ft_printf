@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 08:31:47 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/21 09:15:32 by stigkas          ###   ########.fr       */
+/*   Created: 2023/10/25 10:44:35 by stigkas           #+#    #+#             */
+/*   Updated: 2023/11/20 16:34:31 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../includes/libft.h"
 
-# include <stdarg.h>
-# include "libft.h"
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	size_t		i;
+	char		*dest1;
+	const char	*srcc;
 
-int		ft_printf(const char *format, ...);
-int		pr_format(char spec, va_list lst_args);
-int		print_hex(unsigned long n, char spec);
-int		print_u(unsigned int n);
-int		print_ptr(unsigned long ptr);
-int		h(int char_print, int w);
-
-#endif
+	i = 0;
+	dest1 = (char *)dst;
+	srcc = (const char *)src;
+	if (dest1 <= srcc || dest1 >= srcc + len)
+		ft_memcpy(dest1, srcc, len);
+	else
+	{
+		i = len;
+		while (i > 0)
+		{
+			dest1[i - 1] = srcc[i - 1];
+			i--;
+		}
+	}
+	return (dest1);
+}

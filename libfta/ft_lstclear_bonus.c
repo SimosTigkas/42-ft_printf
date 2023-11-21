@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 08:31:47 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/21 09:15:32 by stigkas          ###   ########.fr       */
+/*   Created: 2023/11/08 08:38:08 by stigkas           #+#    #+#             */
+/*   Updated: 2023/11/20 16:33:39 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../includes/libft.h"
 
-# include <stdarg.h>
-# include "libft.h"
+void	ft_lstclear(t_list **lst, void (*del)(void *))
+{
+	t_list	*temp;
 
-int		ft_printf(const char *format, ...);
-int		pr_format(char spec, va_list lst_args);
-int		print_hex(unsigned long n, char spec);
-int		print_u(unsigned int n);
-int		print_ptr(unsigned long ptr);
-int		h(int char_print, int w);
-
-#endif
+	if (!(*lst) || !del || !(lst))
+		return ;
+	while (*lst)
+	{
+		temp = (*lst)->next;
+		(del)((*lst)->content);
+		free(*lst);
+		*lst = temp;
+	}
+	*lst = NULL;
+}

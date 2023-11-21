@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stigkas <stigkas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 08:31:47 by stigkas           #+#    #+#             */
-/*   Updated: 2023/11/21 09:15:32 by stigkas          ###   ########.fr       */
+/*   Created: 2023/10/31 16:39:53 by stigkas           #+#    #+#             */
+/*   Updated: 2023/11/20 16:32:50 by stigkas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "../includes/libft.h"
 
-# include <stdarg.h>
-# include "libft.h"
+void	*ft_calloc(size_t count, size_t size)
+{
+	size_t	total_size;
+	void	*ptr;
 
-int		ft_printf(const char *format, ...);
-int		pr_format(char spec, va_list lst_args);
-int		print_hex(unsigned long n, char spec);
-int		print_u(unsigned int n);
-int		print_ptr(unsigned long ptr);
-int		h(int char_print, int w);
-
-#endif
+	total_size = count * size;
+	if (total_size < count && total_size < size)
+		return (NULL);
+	ptr = malloc(total_size);
+	if (ptr != NULL)
+		ft_bzero(ptr, total_size);
+	else
+		return (NULL);
+	return (ptr);
+}
