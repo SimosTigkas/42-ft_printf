@@ -14,11 +14,13 @@ To use this printf implementation, include the printf.h header file in your C pr
 
 #include "printf.h"
 
+
 int main(void)
 {
-    ft_printf("Hello, %s! The answer is %d.\n", "World", 42);\n
+    ft_printf("Hello, %s! The answer is %d.\n", "World", 42);
     return 0;
 }
+
 
 ''
 
