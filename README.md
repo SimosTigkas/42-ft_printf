@@ -35,13 +35,3 @@ Prints a pointer address in hexadecimal format with a '0x' prefix.
 
 Error Handling
 The functions return -1 in case of invalid inputs or errors during execution. It is recommended to check the return values for error handling.
-
-<details>
-  <summary><strong>ft_printf</strong></summary>
-
-- <span style="color: green">Green</span>: Added features or positive information
-- <span style="color: orange">Orange</span>: Important instructions or warnings
-- <span style="color: red">Red</span>: Error messages or critical information
-- <span style="color: blue">Blue</span>: Code snippets or technical details
-
-</details>
