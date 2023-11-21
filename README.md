@@ -4,7 +4,7 @@ This project is a custom implementation of the printf function in the C programm
 # Features:
 *Modular Design:* The implementation is divided into smaller functions for better code organization and readability.
 Variable Argument Handling: Utilizes the <stdarg.h> library to handle variable numbers of arguments.
-Format Specifiers: Supports a subset of format specifiers commonly used in the standard printf function, including **"%c"** , **"%s"**, **"%d"**, **"%i"**, **"%u"**, **"%x"**, **"%X"**, **"%p"**, and **"%%"**.
+Format Specifiers: Supports a subset of format specifiers commonly used in the standard printf function, including **'%c'** , **'%s'**, **'%d'**, **'%i'**, **'%u'**, **'%x'**, **'%X'**, **'%p'**, and **'%%'**.
 Error Handling: Checks for invalid inputs and returns -1 in case of errors, allowing for better error management.
 
 ## Usage:
