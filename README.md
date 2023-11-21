@@ -7,7 +7,7 @@ Variable Argument Handling: Utilizes the <stdarg.h> library to handle variable n
 Format Specifiers: Supports a subset of format specifiers commonly used in the standard printf function, including **'%c'** , **'%s'**, **'%d'**, **'%i'**, **'%u'**, **'%x'**, **'%X'**, **'%p'**, and **'%%'**.
 Error Handling: Checks for invalid inputs and returns -1 in case of errors, allowing for better error management.
 
-## Usage:
+# Usage:
 To use this printf implementation, include the printf.h header file in your C program. The ft_printf function can then be called with a format string and variable arguments.
 
 '''
@@ -21,7 +21,7 @@ int main() {
 
 '''
 
-## Function Descriptions
+# Function Descriptions
 *int ft_printf(const char *format, ...)**
 The main function responsible for parsing the format string and printing formatted output. It calls helper functions for handling different format specifiers.
 
